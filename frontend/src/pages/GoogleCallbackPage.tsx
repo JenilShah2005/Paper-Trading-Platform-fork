@@ -5,8 +5,8 @@ import { authenticatedFetch, logBackendResponse, markUserLoggedIn } from "../uti
 import { warmDashboardData } from "../utils/dashboardPrefetch";
 const backendBaseUrl = String(
   import.meta.env.VITE_BACKEND_URL ||
-    import.meta.env.BACKEND_URL ||
-    "http://localhost:8000"
+  import.meta.env.BACKEND_URL ||
+  "http://localhost:8000"
 ).replace(/\/$/, "");
 
 export default function GoogleCallbackPage() {
@@ -60,7 +60,6 @@ export default function GoogleCallbackPage() {
               Accept: "application/json",
             },
             credentials: "include",
-            timeoutMs: 15000,
           },
           "GET /auth/google/callback"
         );
@@ -83,8 +82,8 @@ export default function GoogleCallbackPage() {
           );
           throw new Error(
             data.detail ||
-              data.message ||
-              `Google login failed (${response.status} ${response.statusText}).`
+            data.message ||
+            `Google login failed (${response.status} ${response.statusText}).`
           );
         }
 
